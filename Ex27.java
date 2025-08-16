@@ -1,0 +1,38 @@
+
+//WAJP TO INSERT ARRAY AT SPECIFIC POSITION AND SHIFT ALL ELEMENTS TO RIGHT
+import java.util.Scanner;
+
+class Ex27 {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+
+        System.out.println("Enter the size of  Array");
+        int n = s.nextInt();
+        int arr[] = new int[n + 1];
+
+        System.out.println("Enter the " + n + " elements in Array");
+        for (int i = 0; i < n; i++) {
+            arr[i] = s.nextInt();
+        }
+
+        System.err.println("Enter the element");
+        int element = s.nextInt();
+        System.out.println("Enter the poistion");
+        int pos = s.nextInt();
+        if (pos > 0 && pos <= n) {
+            for (int i = n; i > pos - 1; i--) {
+                arr[i] = arr[i - 1];
+            }
+        } else {
+            System.out.println("Invalid Position");
+            System.exit(0);
+        }
+        arr[pos - 1] = element;
+        System.out.println("Element of array are: ");
+        for (int i = 0; i <= n; i++) {
+            System.out.print(arr[i] + " ");
+        }
+
+        s.close();
+    }
+}
